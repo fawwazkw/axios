@@ -5,10 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AddUserDialog from './AddUserDialog';
-import About from '../../page/About';
-import Hobby from '../../page/Hobby';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useNavigate } from 'react-router-dom';
 
 export const Header = ({ users, onAddUser }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -17,16 +14,16 @@ export const Header = ({ users, onAddUser }) => {
     onAddUser(user);
     setIsDialogOpen(false);
   };
-let history = useHistory("");
+  const navigate = useNavigate();
   return (
     
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <Button  color="inherit">My App</Button>
-              <Button  color="inherit">About</Button>
-              <Button  color="inherit">Hobby</Button>
+              <Button onClick={(() => navigate('/'))}  color="inherit">My App</Button>
+              <Button onClick={(() => navigate('/about'))}  color="inherit">About</Button>
+              <Button onClick={(() => navigate('/memory'))} color="inherit">Memory</Button>
             </Typography>
             <Button color="inherit" onClick={() => setIsDialogOpen(true)}>Add User</Button>
           </Toolbar>

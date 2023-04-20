@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Header } from '../assets/components/Header';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@material-ui/core';
 import Search from '../assets/components/Search';
-import View from '../assets/components/View';
 
 const Landingpage = () => {
   const [data, setData] = useState([]);
